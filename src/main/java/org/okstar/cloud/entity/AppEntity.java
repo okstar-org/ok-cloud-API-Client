@@ -63,4 +63,5 @@ public class AppEntity {
      * 描述
      */
     private Long introduceId;
+
 }
