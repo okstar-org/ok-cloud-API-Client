@@ -13,36 +13,17 @@
 
 package org.okstar.cloud.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.ToString;
-
-import java.math.BigDecimal;
+import lombok.NoArgsConstructor;
 
 @Data
-@ToString(callSuper = true)
-public class AppPlanEntity {
-
-    private Long id;
-
-    /**
-     * 应用ID
-     */
-    private Long appId;
-
-
-    /**
-     * 套餐名称
-     */
-    private String name;
-
-
-    /**
-     * 备注
-     */
-    private String descr;
-
-    /**
-     * 价格
-     */
-    private BigDecimal amount;
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderResultEntity {
+    String no;
+    String url;
+    PayOrderEntity order;
 }

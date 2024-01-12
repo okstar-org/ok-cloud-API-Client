@@ -11,38 +11,46 @@
  * /
  */
 
-package org.okstar.cloud.entity;
+package org.okstar.cloud.defines;
 
-import lombok.Data;
-import lombok.ToString;
-
-import java.math.BigDecimal;
-
-@Data
-@ToString(callSuper = true)
-public class AppPlanEntity {
-
-    private Long id;
-
+public interface PayDefines {
     /**
-     * 应用ID
+     * 订单状态
      */
-    private Long appId;
+     enum OrderStatus {
 
+        /** 已确认 */
+        confirmed,
 
-    /**
-     * 套餐名称
-     */
-    private String name;
+        /** 已完成 */
+        completed,
+
+        /** 已取消 */
+        cancelled,
+
+        /** 已拒绝 */
+        refuse,
+
+    }
 
 
     /**
-     * 备注
+     * 支付状态
      */
-    private String descr;
+    enum PaymentStatus {
 
-    /**
-     * 价格
-     */
-    private BigDecimal amount;
+        /** 未支付 */
+        unpaid,
+
+        /** 已支付 */
+        paid,
+
+        /** 已退款 */
+        refunded,
+
+        /** 退款中 */
+        refunding,
+    }
+
+
 }

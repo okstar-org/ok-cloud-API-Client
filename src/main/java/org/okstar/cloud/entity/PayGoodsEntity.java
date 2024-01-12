@@ -14,35 +14,39 @@
 package org.okstar.cloud.entity;
 
 import lombok.Data;
-import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
-@ToString(callSuper = true)
-public class AppPlanEntity {
 
-    private Long id;
+public class PayGoodsEntity {
 
-    /**
-     * 应用ID
-     */
-    private Long appId;
+    private Long providerId;
 
+    private String providerName;
 
     /**
-     * 套餐名称
+     * 商品名称，格式: 厂商 | 产品名称 | 型号 X 数量
      */
     private String name;
 
+    /**
+     * 商品编号
+     */
+    private String no;
 
     /**
-     * 备注
+     * 商品价格
      */
-    private String descr;
+    private BigDecimal amount = new BigDecimal(0);
 
     /**
-     * 价格
+     * 商品数量
      */
-    private BigDecimal amount;
+    private Integer count;
+
+    private Date periodBegin;
+
+    private Date periodEnd;
 }

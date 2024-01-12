@@ -21,13 +21,12 @@ import org.okstar.platform.common.core.web.page.OkPageable;
 
 import java.util.HashMap;
 
-public class AppChannel {
+public class AppChannel extends AbsChannel {
 
-    private final RestClient restClient;
 
 
     public AppChannel(RestClient client) {
-        this.restClient = client;
+        super(client);
     }
 
     /**

@@ -11,38 +11,14 @@
  * /
  */
 
-package org.okstar.cloud.entity;
+package org.okstar.cloud.channel;
 
-import lombok.Data;
-import lombok.ToString;
+import org.okstar.cloud.RestClient;
 
-import java.math.BigDecimal;
+public abstract class AbsChannel {
+    protected final RestClient restClient;
 
-@Data
-@ToString(callSuper = true)
-public class AppPlanEntity {
-
-    private Long id;
-
-    /**
-     * 应用ID
-     */
-    private Long appId;
-
-
-    /**
-     * 套餐名称
-     */
-    private String name;
-
-
-    /**
-     * 备注
-     */
-    private String descr;
-
-    /**
-     * 价格
-     */
-    private BigDecimal amount;
+    protected AbsChannel(RestClient restClient) {
+        this.restClient = restClient;
+    }
 }
