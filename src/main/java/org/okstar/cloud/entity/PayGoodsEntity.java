@@ -13,36 +13,40 @@
 
 package org.okstar.cloud.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class AppProviderEntity {
+
+public class PayGoodsEntity {
+
+    private Long providerId;
+
+    private String providerName;
 
     /**
-     * 名称
+     * 商品名称，格式: 厂商 | 产品名称 | 型号 X 数量
      */
     private String name;
 
     /**
-     * 别名
+     * 商品编号
      */
-    private String alias;
+    private String no;
+
     /**
-     * 图标
+     * 商品价格
      */
-    private String avatar;
-    private String email;
-    private String phone;
-    //服务条款
-    private String clauseUrl;
-    //官方地址
-    private String officialUrl;
-    //隐私条款
-    private String privacyPolicyUrl;
+    private BigDecimal amount = new BigDecimal(0);
+
+    /**
+     * 商品数量
+     */
+    private Integer count;
+
+    private Date periodBegin;
+
+    private Date periodEnd;
 }

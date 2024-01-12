@@ -11,38 +11,46 @@
  * /
  */
 
-package org.okstar.cloud.entity;
+package org.okstar.cloud.defines;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+public interface PayDefines {
+    /**
+     * 订单状态
+     */
+     enum OrderStatus {
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class AppProviderEntity {
+        /** 已确认 */
+        confirmed,
+
+        /** 已完成 */
+        completed,
+
+        /** 已取消 */
+        cancelled,
+
+        /** 已拒绝 */
+        refuse,
+
+    }
+
 
     /**
-     * 名称
+     * 支付状态
      */
-    private String name;
+    enum PaymentStatus {
 
-    /**
-     * 别名
-     */
-    private String alias;
-    /**
-     * 图标
-     */
-    private String avatar;
-    private String email;
-    private String phone;
-    //服务条款
-    private String clauseUrl;
-    //官方地址
-    private String officialUrl;
-    //隐私条款
-    private String privacyPolicyUrl;
+        /** 未支付 */
+        unpaid,
+
+        /** 已支付 */
+        paid,
+
+        /** 已退款 */
+        refunded,
+
+        /** 退款中 */
+        refunding,
+    }
+
+
 }

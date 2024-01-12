@@ -22,27 +22,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AppProviderEntity {
-
-    /**
-     * 名称
-     */
-    private String name;
-
-    /**
-     * 别名
-     */
-    private String alias;
-    /**
-     * 图标
-     */
-    private String avatar;
-    private String email;
-    private String phone;
-    //服务条款
-    private String clauseUrl;
-    //官方地址
-    private String officialUrl;
-    //隐私条款
-    private String privacyPolicyUrl;
+public class OrderResultEntity {
+    String no;
+    String url;
+    PayOrderEntity order;
 }
