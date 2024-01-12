@@ -18,6 +18,7 @@ import lombok.Data;
 @Data
 public class AppProviderEntity {
     private String name;
+    private String alias;
     private String avatar;
     private String email;
     private String phone;

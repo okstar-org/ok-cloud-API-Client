@@ -14,19 +14,13 @@
 package org.okstar.cloud.entity;
 
 import lombok.Data;
-
-import java.util.List;
+import lombok.ToString;
 
 @Data
-public class AppIntroduceEntity {
+@ToString(callSuper = true)
+public class AppMediaEntity {
 
+    String type;    //image,video,audio
 
-    /**
-     * 附加信息
-     */
-    private String content;
-
-
-    private List<AppMediaEntity> medias;
-
+    String src;
 }

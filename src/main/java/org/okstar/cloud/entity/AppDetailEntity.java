@@ -14,12 +14,22 @@
 package org.okstar.cloud.entity;
 
 import lombok.Data;
+import lombok.ToString;
+
+import java.util.List;
 
 @Data
+@ToString(callSuper = true)
 public class AppDetailEntity extends AppEntity {
 
-    AppIntroduceEntity introduce;
+    private AppIntroduceEntity introduce;
 
-    AppProviderEntity provider;
+    private AppProviderEntity provider;
+
+    private List<AppPlanEntity> plans;
+
+    private List<AppPermissionEntity> permissions;
+
+    private List<AppMediaEntity> medias;
 
 }

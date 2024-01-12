@@ -14,19 +14,20 @@
 package org.okstar.cloud.entity;
 
 import lombok.Data;
-
-import java.util.List;
+import lombok.ToString;
 
 @Data
-public class AppIntroduceEntity {
+@ToString(callSuper = true)
+public class AppPermissionEntity {
 
+    /** 权限名称 */
+    private String name;
+
+    /** 权限域 */
+    private String scope;
 
     /**
-     * 附加信息
+     * 权限魔术值
      */
-    private String content;
-
-
-    private List<AppMediaEntity> medias;
-
+    private String magic;
 }
