@@ -55,11 +55,13 @@ public class PayOrderEntity {
     /** 订单结算状态 */
     private boolean isSettled;
 
+    /** 供应商 */
+    private Long providerId;
+
+    private String providerName;
+
     /** 购买人 */
     private String buyerId;
-
-    /** 供应商 */
-    private String providerId;
 
     /**
      * 商品

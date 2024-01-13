@@ -13,6 +13,8 @@
 
 package org.okstar.cloud.defines;
 
+import lombok.Getter;
+
 public interface PayDefines {
     /**
      * 订单状态
@@ -37,19 +39,26 @@ public interface PayDefines {
     /**
      * 支付状态
      */
+    @Getter
     enum PaymentStatus {
 
         /** 未支付 */
-        unpaid,
+        unpaid("未支付"),
 
         /** 已支付 */
-        paid,
+        paid("已支付"),
 
         /** 已退款 */
-        refunded,
+        refunded("已退款"),
 
         /** 退款中 */
-        refunding,
+        refunding("退款中");
+
+        private final String msg;
+
+        PaymentStatus(String msg) {
+            this.msg = msg;
+        }
     }
 
 
