@@ -14,6 +14,7 @@
 package org.okstar.cloud;
 
 import org.okstar.cloud.channel.AppChannel;
+import org.okstar.cloud.channel.FederalChannel;
 import org.okstar.cloud.channel.OrderChannel;
 import org.okstar.cloud.entity.AuthenticationToken;
 import org.okstar.cloud.enums.SupportedMediaType;
@@ -37,5 +38,8 @@ public class OkCloudApiClient {
 
     public OrderChannel getOrderChannel(){
         return new OrderChannel(restClient);
+    }
+    public FederalChannel getFederalChannel(){
+        return new FederalChannel(restClient);
     }
 }

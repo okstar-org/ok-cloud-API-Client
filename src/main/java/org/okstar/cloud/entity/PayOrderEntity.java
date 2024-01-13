@@ -58,6 +58,8 @@ public class PayOrderEntity {
     /** 供应商 */
     private String providerId;
 
+    private String providerName;
+
     /**
      * 商品
      */
