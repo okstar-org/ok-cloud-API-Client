@@ -43,14 +43,14 @@ public class PayOrderEntity {
     /** 到期时间 */
     private Date expire;
 
+    private Boolean isExpired;
+
     /** 支付方式名称 */
-    private String paymentMethodName;
+    private String paymentName;
 
     /** 付款时间 */
     private Date paymentAt;
 
-    /** 订单结算状态 */
-    private boolean isSettled;
 
     /** 购买人 */
     private String buyerId;
@@ -69,4 +69,15 @@ public class PayOrderEntity {
      * 下单时间
      */
     Date createAt;
+
+    /**
+     * 开始时间
+     */
+    private Date periodBegin;
+
+    /**
+     * 结束时间
+     */
+    private Date periodEnd;
+
 }

@@ -16,6 +16,7 @@ package org.okstar.cloud.channel;
 import org.apache.commons.lang3.BooleanUtils;
 import org.okstar.cloud.RestClient;
 import org.okstar.cloud.entity.OrderResultEntity;
+import org.okstar.cloud.entity.PayOrderEntity;
 
 import java.util.HashMap;
 
@@ -32,5 +33,9 @@ public class OrderChannel extends AbsChannel {
     public boolean close(String no) {
         String post = restClient.post("order/close/" + no, String.class, null, new HashMap<>());
         return BooleanUtils.isTrue(Boolean.valueOf(post));
+    }
+
+    public PayOrderEntity get(String no) {
+        return restClient.get("order/get/" + no, PayOrderEntity.class, new HashMap<>());
     }
 }
