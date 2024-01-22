@@ -43,6 +43,7 @@ public class PayOrderEntity {
     /** 到期时间 */
     private Date expire;
 
+    /** 是否已过期 */
     private Boolean isExpired;
 
     /** 支付方式名称 */
