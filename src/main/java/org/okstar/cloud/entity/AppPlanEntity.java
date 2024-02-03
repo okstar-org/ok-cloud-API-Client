@@ -49,4 +49,14 @@ public class AppPlanEntity {
      * 价格
      */
     private BigDecimal amount;
+
+    /**
+     * 服务周期（月）
+     */
+    private Integer period;
+
+    /**
+     * 最大使用人数
+     */
+    private Integer maxUsers;
 }
