@@ -17,12 +17,13 @@ import org.okstar.cloud.RestClient;
 import org.okstar.cloud.entity.AppDetailEntity;
 import org.okstar.cloud.entity.AppEntities;
 import org.okstar.cloud.entity.AppEntity;
+import org.okstar.platform.common.core.exception.OkCloudException;
+import org.okstar.platform.common.core.utils.OkExceptionUtils;
 import org.okstar.platform.common.core.web.page.OkPageable;
 
 import java.util.HashMap;
 
 public class AppChannel extends AbsChannel {
-
 
 
     public AppChannel(RestClient client) {
@@ -35,7 +36,13 @@ public class AppChannel extends AbsChannel {
      * @return the apps
      */
     public AppEntities getApps(OkPageable pageable) {
-        return restClient.post("app/page", AppEntities.class, pageable, new HashMap<>());
+        String path = "app/page";
+        try {
+            return restClient.post(path, AppEntities.class, pageable, new HashMap<>());
+        } catch (Exception e) {
+            Throwable rootCause = OkExceptionUtils.getRootCause(e);
+            throw new OkCloudException(restClient.getUri(), path, rootCause.getMessage());
+        }
     }
 
     /**
