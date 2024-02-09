@@ -27,4 +27,9 @@ public class FederalStateEntity {
      */
     private String name;
 
+    /**
+     * xmpp地址
+     */
+    private String xmppHost;
+
 }

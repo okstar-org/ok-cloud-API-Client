@@ -17,6 +17,7 @@ import org.okstar.cloud.RestClient;
 import org.okstar.cloud.entity.FederalCitizenEntity;
 import org.okstar.cloud.entity.FederalStateEntity;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class FederalChannel extends AbsChannel {
@@ -25,8 +26,12 @@ public class FederalChannel extends AbsChannel {
         super(restClient);
     }
 
-    public String ping(FederalStateEntity entity) {
-        return restClient.post("federal/ping", String.class, entity, new HashMap<>());
+    public String ping(FederalStateEntity entity) throws IOException {
+        try {
+            return restClient.post("federal/ping", String.class, entity, new HashMap<>());
+        } catch (Exception e) {
+            throw new IOException("无法连接到社区服务器:%s, error:%s".formatted(restClient.getUri(), e.getMessage()), e);
+        }
     }
 
     public String registerCitizen(FederalCitizenEntity entity) {
