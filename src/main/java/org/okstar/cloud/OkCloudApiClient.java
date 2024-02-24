@@ -27,7 +27,7 @@ public class OkCloudApiClient {
     public OkCloudApiClient (String url, AuthenticationToken authenticationToken) {
         restClient = new RestClient.RestClientBuilder(url)
                 .authenticationToken(authenticationToken)
-                .connectionTimeout(5000)
+                .connectionTimeout(60*1000)
                 .mediaType(SupportedMediaType.JSON)
                 .build();
     }
