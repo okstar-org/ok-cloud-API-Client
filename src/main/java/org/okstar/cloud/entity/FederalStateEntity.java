@@ -27,9 +27,24 @@ public class FederalStateEntity {
      */
     private String name;
 
+
     /**
      * xmpp地址
      */
     private String xmppHost;
+
+    /**
+     * Stack Url地址
+     */
+    private String stackUrl;
+
+    /**
+     * FQDN
+     */
+    private String fqdn;
+
+    private String hostName;
+
+    private String publicIp;
 
 }
