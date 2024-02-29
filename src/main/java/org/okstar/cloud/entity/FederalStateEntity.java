@@ -17,14 +17,29 @@ import lombok.Data;
 
 @Data
 public class FederalStateEntity {
-    /**
-     * 组织编号
-     */
-    private String no;
 
     /**
      * 组织名称
      */
     private String name;
+
+    /**
+     * xmpp地址
+     */
+    private String xmppHost;
+
+    /**
+     * Stack Url地址
+     */
+    private String stackUrl;
+
+    /**
+     * FQDN
+     */
+    private String fqdn;
+
+    private String hostName;
+
+    private String publicIp;
 
 }
