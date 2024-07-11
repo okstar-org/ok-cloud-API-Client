@@ -232,7 +232,7 @@ public final class RestClient {
 			ErrorResponse errorResponse = response.readEntity(ErrorResponse.class);
 			throw new ClientErrorException(errorResponse.toString(), response);
 		} else {
-			throw new WebApplicationException("Unsupported status", response);
+			throw new WebApplicationException("Unsupported status:"+response.getStatus(), response);
 		}
 	}
 
