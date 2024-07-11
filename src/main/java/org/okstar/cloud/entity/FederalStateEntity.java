@@ -17,6 +17,10 @@ import lombok.Data;
 
 @Data
 public class FederalStateEntity {
+    /**
+     * 编号（客户侧生成的uuid）
+     */
+    private String no;
 
     /**
      * 组织名称
@@ -34,12 +38,19 @@ public class FederalStateEntity {
     private String stackUrl;
 
     /**
-     * FQDN
+     * 主机名称
+     */
+    private String hostName;
+
+    /**
+     * FQDN(客户侧内网ip)
      */
     private String fqdn;
 
-    private String hostName;
 
+    /**
+     * 公网IP
+     */
     private String publicIp;
 
 }
