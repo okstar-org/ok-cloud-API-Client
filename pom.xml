@@ -31,7 +31,7 @@
 
         <jersey.version>3.1.5</jersey.version>
         <xml.version>4.0.1</xml.version>
-        <slf4j.version>1.7.36</slf4j.version>
+        <slf4j.version>2.0.6</slf4j.version>
     </properties>
 
     <dependencies>
