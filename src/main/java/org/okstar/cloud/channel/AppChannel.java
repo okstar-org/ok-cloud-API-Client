@@ -18,7 +18,7 @@ import org.okstar.cloud.entity.AppDetailEntity;
 import org.okstar.cloud.entity.AppEntities;
 import org.okstar.cloud.entity.AppEntity;
 import org.okstar.platform.common.core.exception.OkCloudException;
-import org.okstar.platform.common.exception.OkExceptionUtils;
+import org.okstar.platform.common.core.utils.OkExceptionUtils;
 import org.okstar.platform.common.core.web.page.OkPageable;
 
 import java.util.HashMap;
