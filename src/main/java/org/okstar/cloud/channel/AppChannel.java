@@ -13,14 +13,15 @@
 
 package org.okstar.cloud.channel;
 
+import jakarta.ws.rs.WebApplicationException;
 import org.okstar.cloud.RestClient;
 import org.okstar.cloud.entity.AppDetailEntity;
 import org.okstar.cloud.entity.AppEntities;
 import org.okstar.cloud.entity.AppEntity;
 import org.okstar.cloud.entity.AppMetaEntity;
-import org.okstar.platform.common.core.exception.OkCloudException;
+
 import org.okstar.platform.common.core.web.page.OkPageable;
-import org.okstar.platform.common.exception.OkExceptionUtils;
+
 
 import java.util.HashMap;
 
@@ -41,8 +42,8 @@ public class AppChannel extends AbsChannel {
         try {
             return restClient.post(path, AppEntities.class, pageable, new HashMap<>());
         } catch (Exception e) {
-            Throwable rootCause = OkExceptionUtils.getRootCause(e);
-            throw new OkCloudException(restClient.getUri(), path, rootCause.getMessage());
+            Throwable rootCause = e.getCause();
+            throw new WebApplicationException(rootCause.getMessage());
         }
     }
 
@@ -58,6 +59,7 @@ public class AppChannel extends AbsChannel {
 
     /**
      * 获取应用详情
+     *
      * @param uuid the app id
      * @return AppDetailEntity
      */
@@ -67,6 +69,7 @@ public class AppChannel extends AbsChannel {
 
     /**
      * 获取应用元数据
+     *
      * @param uuid the app id
      * @return AppMetaEntity
      */
