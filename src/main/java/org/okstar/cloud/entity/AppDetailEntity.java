@@ -14,12 +14,14 @@
 package org.okstar.cloud.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import java.util.List;
 
 @Data
 @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class AppDetailEntity extends AppEntity {
 
     private AppIntroduceEntity introduce;

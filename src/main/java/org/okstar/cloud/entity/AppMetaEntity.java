@@ -13,9 +13,11 @@
 
 package org.okstar.cloud.entity;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class AppMetaEntity {
     private Long appId;
 
