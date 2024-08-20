@@ -85,6 +85,20 @@ public final class RestClient {
 				queryParams);
 	}
 
+	public <T>  T post(
+			String restPath,
+			Class<T> expectedResponse,
+			Object payload,
+			Map<String, String> queryParams
+		) {
+		LOG.debug("POST: {}", restPath);
+		return call(HttpMethod.POST,
+				restPath,
+				expectedResponse,
+				payload,
+				queryParams);
+	}
+
 	/**
 	 * Post.
 	 *

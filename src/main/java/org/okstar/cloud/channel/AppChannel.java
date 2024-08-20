@@ -1,5 +1,5 @@
 /*
- * * Copyright (c) 2022 船山科技 chuanshantech.com
+ * * Copyright (c) 2022 船山信息 chuanshaninfo.com
  * OkStack is licensed under Mulan PubL v2.
  * You can use this software according to the terms and conditions of the Mulan
  * PubL v2. You may obtain a copy of Mulan PubL v2 at:
@@ -18,16 +18,17 @@ import org.okstar.cloud.entity.AppDetailEntity;
 import org.okstar.cloud.entity.AppEntities;
 import org.okstar.cloud.entity.AppEntity;
 import org.okstar.cloud.entity.AppMetaEntity;
+import org.okstar.platform.common.core.exception.OkCloudException;
+import org.okstar.platform.common.core.web.page.OkPageable;
+import org.okstar.platform.common.exception.OkExceptionUtils;
 
 import java.util.HashMap;
 
-public class AppChannel {
-
-    private final RestClient restClient;
+public class AppChannel extends AbsChannel {
 
 
     public AppChannel(RestClient client) {
-        this.restClient = client;
+        super(client);
     }
 
     /**
@@ -35,8 +36,14 @@ public class AppChannel {
      *
      * @return the apps
      */
-    public AppEntities getApps() {
-        return restClient.get("apps", AppEntities.class, new HashMap<>());
+    public AppEntities getApps(OkPageable pageable) {
+        String path = "app/page";
+        try {
+            return restClient.post(path, AppEntities.class, pageable, new HashMap<>());
+        } catch (Exception e) {
+            Throwable rootCause = OkExceptionUtils.getRootCause(e);
+            throw new OkCloudException(restClient.getUri(), path, rootCause.getMessage());
+        }
     }
 
     /**
