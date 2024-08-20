@@ -250,7 +250,12 @@ public final class RestClient {
 	private WebTarget createWebTarget(String restPath, Map<String, String> queryParams) {
 		WebTarget webTarget;
 		try {
-			URI u = new URI(this.baseURI + "/" + restPath);
+			URI u;
+			if (!baseURI.endsWith("/") && !restPath.startsWith("/")) {
+				u = new URI(this.baseURI + "/" + restPath);
+			}else {
+				u = new URI(this.baseURI + restPath);
+			}
 			Client client = createRestClient();
 			webTarget = client.target(u);
 			if (queryParams != null && !queryParams.isEmpty()) {
