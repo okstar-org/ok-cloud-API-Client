@@ -42,28 +42,28 @@ public class AppChannel {
     /**
      * Gets the app.
      *
-     * @param id the app id
+     * @param uuid the app id
      * @return the app
      */
-    public AppEntity getApp(Long id) {
-        return restClient.get("app/" + id, AppEntity.class, new HashMap<>());
+    public AppEntity getApp(String uuid) {
+        return restClient.get("app/" + uuid, AppEntity.class, new HashMap<>());
     }
 
     /**
      * 获取应用详情
-     * @param id the app id
+     * @param uuid the app id
      * @return AppDetailEntity
      */
-    public AppDetailEntity getDetail(Long id) {
-        return restClient.get("app/detail/" + id, AppDetailEntity.class, new HashMap<>());
+    public AppDetailEntity getDetail(String uuid) {
+        return restClient.get("app/detail/" + uuid, AppDetailEntity.class, new HashMap<>());
     }
 
     /**
      * 获取应用元数据
-     * @param id the app id
+     * @param uuid the app id
      * @return AppMetaEntity
      */
-    public AppMetaEntity getMeta(Long id) {
-        return restClient.get("app/meta/" + id, AppMetaEntity.class, new HashMap<>());
+    public AppMetaEntity getMeta(String uuid) {
+        return restClient.get("app/meta/" + uuid, AppMetaEntity.class, new HashMap<>());
     }
 }
