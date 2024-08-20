@@ -19,7 +19,7 @@ import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.moxy.json.MoxyJsonConfig;
 import org.glassfish.jersey.moxy.json.MoxyJsonFeature;
 import org.glassfish.jersey.moxy.xml.MoxyXmlFeature;
-import org.okstar.cloud.entity.AuthenticationMode;
+import org.okstar.cloud.enums.AuthenticationMode;
 import org.okstar.cloud.entity.AuthenticationToken;
 import org.okstar.cloud.enums.SupportedMediaType;
 import org.okstar.cloud.exception.ErrorResponse;

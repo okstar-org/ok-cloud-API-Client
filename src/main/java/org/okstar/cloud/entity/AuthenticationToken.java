@@ -1,5 +1,7 @@
 package org.okstar.cloud.entity;
 
+import org.okstar.cloud.enums.AuthenticationMode;
+
 /**
  * The Class AuthenticationToken.
  */

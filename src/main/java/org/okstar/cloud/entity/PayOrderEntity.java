@@ -68,12 +68,12 @@ public class PayOrderEntity {
     /**
      * 商品
      */
-    List<PayGoodsEntity> goods;
+    private List<PayGoodsEntity> goods;
 
     /**
      * 下单时间
      */
-    Date createAt;
+    private Date createAt;
     /**
      * 开始时间
      */

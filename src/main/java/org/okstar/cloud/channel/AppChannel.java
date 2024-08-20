@@ -17,6 +17,7 @@ import org.okstar.cloud.RestClient;
 import org.okstar.cloud.entity.AppDetailEntity;
 import org.okstar.cloud.entity.AppEntities;
 import org.okstar.cloud.entity.AppEntity;
+import org.okstar.cloud.entity.AppMetaEntity;
 
 import java.util.HashMap;
 
@@ -48,7 +49,21 @@ public class AppChannel {
         return restClient.get("app/" + id, AppEntity.class, new HashMap<>());
     }
 
+    /**
+     * 获取应用详情
+     * @param id the app id
+     * @return AppDetailEntity
+     */
     public AppDetailEntity getDetail(Long id) {
         return restClient.get("app/detail/" + id, AppDetailEntity.class, new HashMap<>());
+    }
+
+    /**
+     * 获取应用元数据
+     * @param id the app id
+     * @return AppMetaEntity
+     */
+    public AppMetaEntity getMeta(Long id) {
+        return restClient.get("app/meta/" + id, AppMetaEntity.class, new HashMap<>());
     }
 }
