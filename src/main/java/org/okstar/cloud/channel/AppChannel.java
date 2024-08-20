@@ -42,7 +42,7 @@ public class AppChannel extends AbsChannel {
         try {
             return restClient.post(path, AppEntities.class, pageable, new HashMap<>());
         } catch (Exception e) {
-            Throwable rootCause = e.getCause();
+            Throwable rootCause = e.getCause() == null ? e : e.getCause();
             throw new WebApplicationException(rootCause.getMessage());
         }
     }

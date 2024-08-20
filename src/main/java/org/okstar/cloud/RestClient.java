@@ -231,6 +231,8 @@ public final class RestClient {
 				|| response.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()) {
 			ErrorResponse errorResponse = response.readEntity(ErrorResponse.class);
 			throw new ClientErrorException(errorResponse.toString(), response);
+		} else if (response.getStatus() == Response.Status.INTERNAL_SERVER_ERROR.getStatusCode()) {
+			throw new WebApplicationException("Server Error", response);
 		} else {
 			throw new WebApplicationException("Unsupported status", response);
 		}
@@ -248,9 +250,8 @@ public final class RestClient {
 	private WebTarget createWebTarget(String restPath, Map<String, String> queryParams) {
 		WebTarget webTarget;
 		try {
-			URI u = new URI(this.baseURI + "/plugins/restapi/v1/" + restPath);
+			URI u = new URI(this.baseURI + "/" + restPath);
 			Client client = createRestClient();
-
 			webTarget = client.target(u);
 			if (queryParams != null && !queryParams.isEmpty()) {
 				for (Map.Entry<String, String> entry : queryParams.entrySet()) {
