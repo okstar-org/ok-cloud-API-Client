@@ -13,7 +13,6 @@
 
 package org.okstar.cloud.entity;
 
-import lombok.Builder;
 import lombok.Data;
 import org.okstar.cloud.enums.AppDefines;
 
@@ -21,7 +20,6 @@ import org.okstar.cloud.enums.AppDefines;
  * 应用元数据（开发人员配置）
  */
 @Data
-@Builder
 public class AppMetaEntity {
 
     private String uuid;
