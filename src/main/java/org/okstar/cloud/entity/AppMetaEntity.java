@@ -15,18 +15,30 @@ package org.okstar.cloud.entity;
 
 import lombok.Builder;
 import lombok.Data;
+import org.okstar.cloud.enums.AppDefines;
 
+/**
+ * 应用元数据（开发人员配置）
+ */
 @Data
 @Builder
 public class AppMetaEntity {
+
     private String uuid;
 
     private String appUuid;
 
-    @Data
-    public static class RunOn {
-        String yaml;
-    }
+    /**
+     * 运行形态
+     * @see AppDefines.RunModality
+     */
+    AppDefines.RunModality runModality;
 
-    private RunOn runOn;
+    /**
+     * 运行文件内容
+     *  Url: if runModality is Url
+     *  Dockerfile : if runModality is Docker
+     *  DockerCompose file: if runModality is DockerCompose
+     */
+    private String runOn;
 }

@@ -35,7 +35,8 @@ public interface AppDefines {
         //Docker
         Docker,
         //Docker compose
-        DockerCompose
+        DockerCompose,
+        Url,
     }
 
     /**
