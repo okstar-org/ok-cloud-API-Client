@@ -19,7 +19,8 @@ import lombok.Data;
 @Data
 @Builder
 public class AppMetaEntity {
-    private Long appId;
+    private String appUuid;
+    private String uuid;
 
     @Data
     public static class RunOn {
