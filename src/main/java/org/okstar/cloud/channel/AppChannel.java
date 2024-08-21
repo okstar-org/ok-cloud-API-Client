@@ -42,7 +42,7 @@ public class AppChannel extends AbsChannel {
         try {
             return restClient.post(path, AppEntities.class, pageable, new HashMap<>());
         } catch (Exception e) {
-            Throwable rootCause = e.getCause();
+            Throwable rootCause = e.getCause() == null ? e : e.getCause();
             throw new WebApplicationException(rootCause.getMessage());
         }
     }
@@ -64,7 +64,7 @@ public class AppChannel extends AbsChannel {
      * @return AppDetailEntity
      */
     public AppDetailEntity getDetail(String uuid) {
-        return restClient.get("app/detail/" + uuid, AppDetailEntity.class, new HashMap<>());
+        return restClient.get("app/"+uuid+"/detail/", AppDetailEntity.class, new HashMap<>());
     }
 
     /**
@@ -74,6 +74,6 @@ public class AppChannel extends AbsChannel {
      * @return AppMetaEntity
      */
     public AppMetaEntity getMeta(String uuid) {
-        return restClient.get("app/meta/" + uuid, AppMetaEntity.class, new HashMap<>());
+        return restClient.get("app/" + uuid+"/meta", AppMetaEntity.class, new HashMap<>());
     }
 }
