@@ -22,12 +22,15 @@ import java.math.BigDecimal;
 @ToString(callSuper = true)
 public class AppPlanEntity {
 
-    private Long id;
+    /**
+     * UUID
+     */
+    private String uuid;
 
     /**
      * 应用ID
      */
-    private Long appId;
+    private String appUuid;
 
     /**
      * 唯一编号

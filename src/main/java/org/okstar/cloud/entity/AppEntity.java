@@ -17,9 +17,14 @@ import lombok.Data;
 
 @Data
 public class AppEntity {
-
+    /**
+     * UUID
+     */
     private String uuid;
 
+    /**
+     * NO
+     */
     private String no;
     /**
      * Key

@@ -30,7 +30,7 @@ public class AppMetaEntity {
      * 运行形态
      * @see AppDefines.RunModality
      */
-    AppDefines.RunModality runModality;
+    private AppDefines.RunModality runModality;
 
     /**
      * 运行文件内容
