@@ -26,8 +26,8 @@ public class OrderChannel extends AbsChannel {
         super(restClient);
     }
 
-    public OrderResultEntity create(Long planId) {
-        return restClient.post("order/" + planId, OrderResultEntity.class, null, new HashMap<>());
+    public OrderResultEntity create(String planUuid) {
+        return restClient.post("order/" + planUuid, OrderResultEntity.class, null, new HashMap<>());
     }
 
     public boolean close(String no) {
