@@ -58,10 +58,6 @@ public class AppPlanEntity {
      */
     private Integer period;
 
-    public int getPeriod() {
-        return period == null?0:period;
-    }
-
     /**
      * 最大使用人数
      */
