@@ -22,6 +22,8 @@ import java.util.List;
 
 @Data
 public class PayOrderEntity {
+    /** UUID */
+    private String uuid;
 
     /** 订单编号 */
     private String no;
@@ -84,4 +86,9 @@ public class PayOrderEntity {
      */
     private Date periodEnd;
 
+    /** 应用UUID */
+    private String appUuid;
+
+    /** 套餐UUID */
+    private String planUuid;
 }
