@@ -54,7 +54,7 @@ public class AppEntity {
     /**
      * 邮件
      */
-    private String mail;
+    private String email;
 
     /**
      * 主页
