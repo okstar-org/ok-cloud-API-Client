@@ -17,6 +17,9 @@ import lombok.Data;
 
 @Data
 public class AppEntity {
+
+    private String type;
+
     /**
      * UUID
      */
@@ -26,10 +29,7 @@ public class AppEntity {
      * NO
      */
     private String no;
-    /**
-     * Key
-     */
-    private String key;
+
 
     /**
      * 应用名称
@@ -45,7 +45,6 @@ public class AppEntity {
      * 备注
      */
     private String descr;
-
 
     /**
      * 开发者
