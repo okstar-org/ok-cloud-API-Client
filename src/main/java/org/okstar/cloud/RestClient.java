@@ -78,6 +78,7 @@ public final class RestClient {
 			String restPath,
 			Class<T> expectedResponse,
 			Map<String, String> queryParams) {
+		LOG.info("GET: {}", restPath);
 		return call(HttpMethod.GET,
 				restPath,
 				expectedResponse,
@@ -91,7 +92,7 @@ public final class RestClient {
 			Object payload,
 			Map<String, String> queryParams
 		) {
-		LOG.debug("POST: {}", restPath);
+		LOG.info("POST: {}", restPath);
 		return call(HttpMethod.POST,
 				restPath,
 				expectedResponse,
@@ -256,6 +257,7 @@ public final class RestClient {
 			}else {
 				u = new URI(this.baseURI + restPath);
 			}
+			LOG.info("Call=> {}", u);
 			Client client = createRestClient();
 			webTarget = client.target(u);
 			if (queryParams != null && !queryParams.isEmpty()) {
