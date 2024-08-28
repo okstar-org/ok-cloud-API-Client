@@ -1,5 +1,5 @@
 /*
- * * Copyright (c) 2022 船山科技 chuanshantech.com
+ * * Copyright (c) 2022 船山信息 chuanshaninfo.com
  * OkStack is licensed under Mulan PubL v2.
  * You can use this software according to the terms and conditions of the Mulan
  * PubL v2. You may obtain a copy of Mulan PubL v2 at:
@@ -13,36 +13,27 @@
 
 package org.okstar.cloud.entity;
 
+
 import lombok.Data;
 
+/**
+ * Stack配置
+ */
 @Data
-public class FederalStateEntity {
+public class FederalStateConfEntity {
     /**
-     * 编号（客户侧生成的uuid）
+     * IM 主机地址
      */
-    private String no;
-
-    /**
-     * 组织名称
-     */
-    private String name;
-
-
+    private String imHost;
 
     /**
-     * 主机名称
+     * IM 主机端口
      */
-    private String hostName;
+    private int imPort;
 
     /**
-     * FQDN(客户侧内网ip)
+     * Stack Url地址
      */
-    private String fqdn;
-
-
-    /**
-     * 公网IP
-     */
-    private String publicIp;
+    private String stackUrl;
 
 }

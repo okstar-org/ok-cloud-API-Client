@@ -14,8 +14,7 @@
 package org.okstar.cloud.channel;
 
 import org.okstar.cloud.RestClient;
-import org.okstar.cloud.entity.FederalCitizenEntity;
-import org.okstar.cloud.entity.FederalStateEntity;
+import org.okstar.cloud.entity.*;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,9 +25,28 @@ public class FederalChannel extends AbsChannel {
         super(restClient);
     }
 
-    public String ping(FederalStateEntity entity) throws IOException {
+    /**
+     * 获取组织认证编号
+     *
+     * @return 认证编号
+     */
+    public String acquireCert(FederalStateEntity entity) throws IOException {
         try {
-            return restClient.post("federal/ping", String.class, entity, new HashMap<>());
+            return restClient.post("federal/requireCert", String.class, entity, new HashMap<>());
+        } catch (Exception e) {
+            throw new IOException("无法连接到社区服务器:%s, error:%s".formatted(restClient.getUri(), e.getMessage()), e);
+        }
+    }
+
+    /**
+     * @param cert
+     * @param entity
+     * @return FederalStatePongEntity
+     * @throws IOException
+     */
+    public FederalStatePongEntity ping(String cert, FederalStatePingEntity entity) throws IOException {
+        try {
+            return restClient.post("federal/ping/" + cert, FederalStatePongEntity.class, entity, new HashMap<>());
         } catch (Exception e) {
             throw new IOException("无法连接到社区服务器:%s, error:%s".formatted(restClient.getUri(), e.getMessage()), e);
         }
@@ -36,5 +54,13 @@ public class FederalChannel extends AbsChannel {
 
     public String registerCitizen(FederalCitizenEntity entity) {
         return restClient.post("federal/registerCitizen", String.class, entity, new HashMap<>());
+    }
+
+    public String putConfig(String cert, FederalStateConfEntity entity) throws IOException {
+        try {
+            return restClient.post("federal/conf/" + cert, String.class, entity, new HashMap<>());
+        } catch (Exception e) {
+            throw new IOException("无法连接到社区服务器:%s, error:%s".formatted(restClient.getUri(), e.getMessage()), e);
+        }
     }
 }
