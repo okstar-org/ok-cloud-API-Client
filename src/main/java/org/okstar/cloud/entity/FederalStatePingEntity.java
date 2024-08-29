@@ -22,6 +22,10 @@ import java.util.Date;
  */
 @Data
 public class FederalStatePingEntity {
+    //编号
+    private String no;
+    //名称
+    private String name;
     //时间戳
     private Date ts;
     //本机域名

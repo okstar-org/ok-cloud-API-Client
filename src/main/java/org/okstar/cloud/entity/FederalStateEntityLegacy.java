@@ -15,8 +15,12 @@ package org.okstar.cloud.entity;
 
 import lombok.Data;
 
+/**
+ * 旧版Stack实体
+ */
+@Deprecated
 @Data
-public class FederalStateEntity {
+public class FederalStateEntityLegacy {
     /**
      * 编号（客户侧生成的uuid）
      */
@@ -27,7 +31,29 @@ public class FederalStateEntity {
      */
     private String name;
 
-    private String url;
+    /**
+     * xmpp地址
+     */
+    private String xmppHost;
 
-    private String location;
+    /**
+     * Stack Url地址
+     */
+    private String stackUrl;
+
+    /**
+     * 主机名称
+     */
+    private String hostName;
+
+    /**
+     * FQDN(客户侧内网ip)
+     */
+    private String fqdn;
+
+
+    /**
+     * 公网IP
+     */
+    private String publicIp;
 }

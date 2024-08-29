@@ -52,6 +52,21 @@ public class FederalChannel extends AbsChannel {
         }
     }
 
+    /**
+     * Ping
+     * @param entity
+     * @return
+     * @throws IOException
+     */
+    @Deprecated
+    public String ping(FederalStateEntityLegacy entity) throws IOException {
+        try {
+            return restClient.post("federal/ping", String.class, entity, new HashMap<>());
+        } catch (Exception e) {
+            throw new IOException("无法连接到社区服务器:%s, error:%s".formatted(restClient.getUri(), e.getMessage()), e);
+        }
+    }
+
     public String registerCitizen(FederalCitizenEntity entity) {
         return restClient.post("federal/registerCitizen", String.class, entity, new HashMap<>());
     }
