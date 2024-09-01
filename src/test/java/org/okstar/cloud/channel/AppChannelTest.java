@@ -20,7 +20,8 @@ import org.okstar.cloud.OkCloudApiClient;
 import org.okstar.cloud.entity.AppEntities;
 import org.okstar.cloud.entity.AuthenticationToken;
 import org.okstar.cloud.entity.OkPageable;
-import org.okstar.platform.common.core.defined.OkCloudDefines;
+import org.okstar.platform.core.OkCloudDefines;
+
 
 @Slf4j
 class AppChannelTest {
