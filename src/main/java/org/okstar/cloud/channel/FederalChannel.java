@@ -32,7 +32,7 @@ public class FederalChannel extends AbsChannel {
      */
     public String acquireCert(FederalStateEntity entity) throws IOException {
         try {
-            return restClient.post("federal/requireCert", String.class, entity, new HashMap<>());
+            return restClient.post("federal/acquireCert", String.class, entity, new HashMap<>());
         } catch (Exception e) {
             throw new IOException("无法连接到社区服务器:%s, error:%s".formatted(restClient.getUri(), e.getMessage()), e);
         }
