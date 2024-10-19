@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderResultEntity {
-    String no;
-    String url;
-    PayOrderEntity order;
+    private String no;
+    private String url;
+    private PayOrderEntity order;
 }

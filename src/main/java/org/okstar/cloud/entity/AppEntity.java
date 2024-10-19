@@ -17,7 +17,17 @@ import lombok.Data;
 
 @Data
 public class AppEntity {
+    /**
+     * BPM - 业务流
+     * LowCode - 低代码
+     * CRM - 客户管理
+     * FT - 财税
+     */
+    private String key;
 
+    /**
+     * 'Alliance','Open'
+     */
     private String type;
 
     /**
