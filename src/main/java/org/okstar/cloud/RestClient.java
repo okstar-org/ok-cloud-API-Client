@@ -34,6 +34,8 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * The Class RestClient.
@@ -368,8 +370,8 @@ public final class RestClient {
 						return true;
 					}
 				})
+				.executorService(Executors.newSingleThreadExecutor())
 				.withConfig(clientConfig).build();
-
 		return client;
 	}
 
