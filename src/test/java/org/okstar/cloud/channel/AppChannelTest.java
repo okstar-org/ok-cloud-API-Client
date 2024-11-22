@@ -15,16 +15,30 @@ package org.okstar.cloud.channel;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.okstar.cloud.OkCloudApiClient;
+import org.okstar.cloud.entity.AppEntities;
+import org.okstar.cloud.entity.AuthenticationToken;
+import org.okstar.cloud.entity.OkPageable;
 
 
 @Slf4j
 class AppChannelTest {
+    String OK_CLOUD_API = "https://cloud.okstar.org.cn/api";
+    String OK_CLOUD_API_STACK = OK_CLOUD_API + "/open/stack";
 
-//    @Test
-//    void getApps() {
-//        var token = new AuthenticationToken(OkCloudDefines.OK_CLOUD_USERNAME, OkCloudDefines.OK_CLOUD_PASSWORD);
-//        OkCloudApiClient client = new OkCloudApiClient(OkCloudDefines.OK_CLOUD_API_STACK, token);
-//        AppEntities apps = client.getAppChannel().getApps(new OkPageable(1, 1));
-//        log.info(apps.toString());
-//    }
+    String OK_CLOUD_USERNAME = "okstar";
+    String OK_CLOUD_PASSWORD = "okstar.123#";
+
+    @Test
+    void getApps() {
+        var token = new AuthenticationToken(OK_CLOUD_USERNAME, OK_CLOUD_PASSWORD);
+        OkCloudApiClient client = new OkCloudApiClient(OK_CLOUD_API_STACK, token);
+
+        for (int i = 0; i < 100; i++) {
+            AppEntities apps = client.getAppChannel().getApps(new OkPageable(0, 10));
+            log.info("apps:{}", apps.toString());
+        }
+
+    }
 }
