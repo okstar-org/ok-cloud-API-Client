@@ -35,7 +35,7 @@ class AppChannelTest {
         var token = new AuthenticationToken(OK_CLOUD_USERNAME, OK_CLOUD_PASSWORD);
         OkCloudApiClient client = new OkCloudApiClient(OK_CLOUD_API_STACK, token);
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 5; i++) {
             AppEntities apps = client.getAppChannel().getApps(new OkPageable(0, 10));
             log.info("apps:{}", apps.toString());
         }

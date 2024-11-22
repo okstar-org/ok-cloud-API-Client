@@ -34,7 +34,6 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
@@ -309,12 +308,13 @@ public final class RestClient {
                 .register(MoxyXmlFeature.class)
                 .register(createMoxyJsonResolver());
 
-        Client client = null;
+        ClientBuilder clientBuilder = null;
         if (this.baseURI.startsWith("https")) {
-            client = createSLLClient(clientConfig);
+            clientBuilder = createSLLClient(clientConfig);
         } else {
-            client = withClientBuilder(clientConfig).build();
+            clientBuilder = withClientBuilder(clientConfig);
         }
+        Client client = clientBuilder.executorService(Executors.newSingleThreadExecutor()).build();
         LOG.info("Created client:{}", client);
         return client;
     }
@@ -335,7 +335,7 @@ public final class RestClient {
      * @throws KeyManagementException   the key management exception
      * @throws NoSuchAlgorithmException the no such algorithm exception
      */
-    private Client createSLLClient(ClientConfig clientConfig)
+    private ClientBuilder createSLLClient(ClientConfig clientConfig)
             throws KeyManagementException, NoSuchAlgorithmException {
         TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
             public X509Certificate[] getAcceptedIssuers() {
@@ -355,7 +355,7 @@ public final class RestClient {
         return withClientBuilder(clientConfig).sslContext(sc).hostnameVerifier((hostname, sslSession) -> {
             LOG.info("Verify host:{}", hostname);
             return true;
-        }).build();
+        });
     }
 
     private static ClientBuilder withClientBuilder(ClientConfig clientConfig) {
